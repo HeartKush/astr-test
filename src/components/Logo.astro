@@ -1,7 +1,9 @@
 ---
 import { SITE } from '~/utils/config';
+import logoSoftwow  from '~/assets/images/softwow-blanco.webp' 
+import { Image } from "astro:assets";
 ---
-
+<Image class="w-14" src={logoSoftwow} alt="imagen ses" />
 <span class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 {SITE?.name}
+  {SITE?.name}
 </span>

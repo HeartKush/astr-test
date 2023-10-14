@@ -1,5 +1,5 @@
 site:
-  name: AstroWind
+  name: SOFTWOW
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false

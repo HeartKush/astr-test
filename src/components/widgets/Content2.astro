@@ -1,0 +1,99 @@
+---
+import type { Content } from '~/types';
+import Image from '~/components/common/Image.astro';
+
+const {
+  content = await Astro.slots.render('content'),
+  image = await Astro.slots.render('image'),
+  isReversed = false,
+} = Astro.props as Content;
+---
+
+
+  <div class="shake-vertical mx-auto md:mx-0 mt-12 md:flex max-w-xs">
+    <div class={`${isReversed ? 'lg:flex-row-reverse' : ''} lg:gap-16`}>
+      <div class="md:basis-1/2 self-center justify-center flex">
+        {content && <div class="mb-1 text-lg dark:text-slate-400" set:html={content} />}
+      </div>
+      {
+        image && (
+          <div class="h-100 m-auto">
+            {typeof image === 'string' ? (
+              <Fragment set:html={image} />
+            ) : (
+              <Image
+                class="mx-auto w-64 rounded-lg bg-gray-500 shadow-lg"
+                width={500}
+                height={500}
+                layout="cover"
+                {...(image as any)}
+              />
+            )}
+          </div>
+        )
+      }
+    </div>
+  </div>
+  <style>
+    .shake-vertical {
+      -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+      animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    }
+    @-webkit-keyframes shake-vertical {
+      0%,
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      10%,
+      30%,
+      50%,
+      70% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
+      20%,
+      40%,
+      60% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+      80% {
+        -webkit-transform: translateY(6.4px);
+        transform: translateY(6.4px);
+      }
+      90% {
+        -webkit-transform: translateY(-6.4px);
+        transform: translateY(-6.4px);
+      }
+    }
+    @keyframes shake-vertical {
+      0%,
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      10%,
+      30%,
+      50%,
+      70% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
+      20%,
+      40%,
+      60% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+      80% {
+        -webkit-transform: translateY(6.4px);
+        transform: translateY(6.4px);
+      }
+      90% {
+        -webkit-transform: translateY(-6.4px);
+        transform: translateY(-6.4px);
+      }
+    }
+  </style>
+

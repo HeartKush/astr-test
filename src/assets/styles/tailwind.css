@@ -18,6 +18,9 @@
   .text-muted {
     color: var(--aw-color-text-muted);
   }
+  .bg-nav{
+    background-color: transparent;
+  }
 }
 
 @layer components {
@@ -88,3 +91,4 @@
 .dd *:first-child {
   margin-top: 0;
 }
+

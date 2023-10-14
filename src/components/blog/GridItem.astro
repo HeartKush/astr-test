@@ -7,13 +7,12 @@ import Image from '~/components/common/Image.astro';
 import { findImage } from '~/utils/images';
 import { getPermalink } from '~/utils/permalinks';
 
-
 export interface Props {
   post: Post;
 }
 
 const { post } = Astro.props;
-const image = (await findImage(post.image));
+const image = await findImage(post.image);
 ---
 
 <article class="mb-6 transition">
@@ -26,9 +25,9 @@ const image = (await findImage(post.image));
             class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
             widths={[400, 900]}
             width={400}
+            height={0}
             sizes="(max-width: 900px) 400px, 900px"
             alt={post.title}
-            aspectRatio="16:9"
             layout="cover"
             loading="lazy"
             decoding="async"

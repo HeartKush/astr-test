@@ -113,7 +113,7 @@ const getStyle = ({
   height,
   aspectRatio,
   layout,
-  objectFit = 'cover',
+  objectFit = 'contain',
   objectPosition = 'center',
   background,
 }: {
@@ -168,6 +168,7 @@ const getStyle = ({
   if (layout === 'cover') {
     styleEntries.push(['max-width', '100%']);
     styleEntries.push(['max-height', '100%']);
+    styleEntries.push(['object-fit', 'unset']);
   }
 
   const styles = Object.fromEntries(styleEntries.filter(([, value]) => value));
