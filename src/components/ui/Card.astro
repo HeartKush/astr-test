@@ -1,0 +1,160 @@
+---
+import { findImage } from '~/utils/images';
+import Image from '~/components/common/Image.astro';
+interface Props {
+  image: string;
+  alt: string;
+}
+const { image, alt } = Astro.props;
+const imageFounded = await findImage(image);
+---
+
+<div class="card ">
+  <div class="card-info">
+    <!-- <p class="title">Magic Card</p> -->
+    <Image
+      widths={[400, 900]}
+      width={500}
+      height={0}
+      alt={alt}
+      layout="cover"
+      loading="lazy"
+      decoding="async"
+      class="w-100 md:w-100 title h-full"
+      src={imageFounded}
+      alt="imagen ses"
+    />
+  </div>
+</div>
+
+<style lang="scss">
+  .card {
+    --background: linear-gradient(315deg, #03a9f4, #ff0058);
+    width: 340px;
+    height: 254px;
+    padding: 5px;
+    border-radius: 1rem;
+    overflow: visible;
+    background: #f7ba2b;
+    background: var(--background);
+    position: relative;
+    z-index: 1;
+  }
+
+  .card::after {
+    position: absolute;
+    content: '';
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(25px);
+    background: #f7ba2b;
+    background: var(--background);
+    transition: opacity 0.5s;
+  }
+
+  .card-info {
+    --color: #181818;
+    background: var(--color);
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: 0.7rem;
+    .title {
+      opacity: 0;
+      transition:
+        visibility 0s,
+        opacity 0.5s linear;
+    }
+  }
+
+  .card {
+    .title {
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      border-radius: 12px;
+    }
+  }
+
+  /*Hover*/
+  .card:hover::after {
+    opacity: 0;
+  }
+
+  .card:hover .card-info {
+    color: #f7ba2b;
+    transition: color 1s;
+
+    .title {
+      opacity: 1;
+    }
+  }
+  .shake-vertical {
+    -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  }
+  @-webkit-keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+  @keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+</style>

@@ -7,6 +7,7 @@ import Button from "~/components/ui/Button.astro"
 import { getHomePermalink } from "~/utils/permalinks";
 import { trimSlash } from "~/utils/permalinks";
 import type { CallToAction } from "~/types";
+import SpaceButton from "../ui/SpaceButton.astro";
 
 interface Link {
   text?: string;
@@ -36,7 +37,7 @@ export interface Props {
 const {
   id = "header",
   links = [],
-  actions = [],
+/*   actions = [], */
   isSticky = false,
   isDark = false,
   isFullWidth = false,
@@ -46,7 +47,7 @@ const {
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
 ---
 
-<header
+<header transition:persist
   class:list={[
     { absolute: isSticky, relative: !isSticky, dark: isDark },
     "top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out",
@@ -58,7 +59,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
     class:list={[
       "relative text-default py-3 px-3 md:px-6 mx-auto w-full md:flex md:justify-between",
       {
-        "max-w-7xl": !isFullWidth,
+        "max-w-full": !isFullWidth,
       },
     ]}
   >
@@ -67,7 +68,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
         <Logo />
       </a>
       <div class="flex items-center md:hidden">
-        <ToggleMenu />
+        <ToggleMenu transition:persist/>
       </div>
     </div>
     <nav
@@ -138,7 +139,8 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             )
           }
         </div> -->
-        {
+        <SpaceButton href="/#" text="Sorteo"  />
+<!--         {
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
@@ -148,7 +150,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
           ) : (
             ""
           )
-        }
+        } -->
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <SpaceBg />
-  <div class="flex flex-col md:flex-row justify-center pt-28 md:pt-28 gap-16 xl:pt-30">
+  <div class="shake-vertical flex flex-col md:flex-row justify-center pt-28 md:pt-28 gap-16 xl:pt-30">
     <!-- first card -->
     <div class="flex flex-col justify-center">
       <h3 class="text-4xl md:text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Comunicación</h3>
@@ -27,7 +27,7 @@ const metadata = {
       </picture>
     </div>
   </div>
-  <div class="flex flex-col mt-16 md:mt-10 pb-16 md:flex-row justify-center gap-16 xl:pb-0">
+  <div class="shake-vertical flex flex-col mt-16 md:mt-10 pb-16 md:flex-row justify-center gap-16 xl:pb-0">
     <!-- first card -->
     <div class="flex flex-col justify-center">
       <h3 class="text-4xl md:text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Resultados</h3>
@@ -44,3 +44,65 @@ const metadata = {
     </div>
   </div>
 </Layout>
+<style>
+        .shake-vertical {
+      -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+      animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    }
+    @-webkit-keyframes shake-vertical {
+      0%,
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      10%,
+      30%,
+      50%,
+      70% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
+      20%,
+      40%,
+      60% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+      80% {
+        -webkit-transform: translateY(6.4px);
+        transform: translateY(6.4px);
+      }
+      90% {
+        -webkit-transform: translateY(-6.4px);
+        transform: translateY(-6.4px);
+      }
+    }
+    @keyframes shake-vertical {
+      0%,
+      100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      10%,
+      30%,
+      50%,
+      70% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
+      20%,
+      40%,
+      60% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+      80% {
+        -webkit-transform: translateY(6.4px);
+        transform: translateY(6.4px);
+      }
+      90% {
+        -webkit-transform: translateY(-6.4px);
+        transform: translateY(-6.4px);
+      }
+    }
+</style>

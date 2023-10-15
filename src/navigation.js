@@ -25,6 +25,14 @@ export const headerData = {
       ], */
     },
     {
+      text: 'ADN',
+      href: getPermalink('/adn'),
+    },
+    {
+      text: 'Aliados',
+      href: getPermalink('/aliados'),
+    },
+    /*     {
       text: 'Pages',
       links: [
         {
@@ -110,13 +118,13 @@ export const headerData = {
           href: getPermalink('astro', 'tag'),
         },
       ],
-    },
+    }, */
     {
       text: 'Home',
       href: getPermalink('/home'),
     },
   ],
-  actions: [{ text: 'Sorteo!', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [{ text: 'Sorteo!', variant: 'primary', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
