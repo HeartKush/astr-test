@@ -86,6 +86,7 @@ export interface MetaDataTwitter {
 export interface Image {
   src: string;
   alt?: string;
+  imagesWithLoadedData?:string;
 }
 
 export interface Video {

@@ -1,0 +1,24 @@
+---
+
+import SpaceBg from '../../components/ui/Space-bg.astro'
+import Layout from '../../layouts/PageLayout.astro';
+import Badges from '../../components/ui/Badges.astro'
+import Card2 from '../../components/ui/Card2.astro';
+
+const metadata = {
+  title: 'SES — Historia',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <SpaceBg />
+  <div class="flex justify-center pt-32">
+    <Badges />
+  </div>
+  <div class="flex justify-center pt-20 pb-10 gap-20 flex-wrap">
+    <Card2 />
+     <Card2 />
+  </div>
+</Layout>
+

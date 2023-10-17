@@ -1,11 +1,7 @@
 ---
 import SpaceBg from '~/components/ui/Space-bg.astro';
 import Layout from '~/layouts/PageLayout.astro';
-import Content from '~/components/widgets/Content2.astro';
-import logoSoftwow from '~/assets/images/softwow-blanco.webp';
-import { Image } from 'astro:assets';
-import test from '../assets/images/retrato-jovenes-globo.jpg'
-
+import Brands from '~/components/widgets/Brands.astro';
 const metadata = {
   title: 'SES — Aliados',
   ignoreTitleTemplate: true,
@@ -14,62 +10,91 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <SpaceBg />
-  <!--   <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  /> -->
-  <div class="pt-28">
-    <div class="flex flex-col md:flex-row md:justify-evenly md:gap-20">
-      <Content
-        isReversed
-        image={{
-          src: test,
-          alt: 'Features Image',
-        }}
-      >
-        <Fragment slot="content">
-          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Comunicación</h3>
-        </Fragment>
-      </Content>
-      <Image class="w-100" src={logoSoftwow} alt="imagen ses" />
-      <Content
-        isReversed
-        image={{
-          src: test,
-          alt: 'Features Image',
-        }}
-      >
-        <Fragment slot="content">
-          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Seguimiento</h3>
-        </Fragment>
-      </Content>
-    </div>
-    <div class="flex flex-col md:flex-row justify-center md:gap-20 pb-7">
-      <Content
-        isReversed
-        image={{
-          src: test,
-          alt: 'Features Image',
-        }}
-      >
-        <Fragment slot="content">
-          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Resultados</h3>
-        </Fragment>
-      </Content>
-      <Content
-        isReversed
-        image={{
-          src: test,
-          alt: 'Features Image',
-        }}
-      >
-        <Fragment slot="content">
-          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Desempeño</h3>
-        </Fragment>
-      </Content>
-    </div>
+  <div class="relative pt-28 mx-auto max-w-7xl md:px-24 md:py-12 2xl:pt-28 2xl:pb-16 text-default">
+    <Brands
+      title="Aliados"
+      subtitle="En Softwow, creemos en la colaboración para impulsar la innovación y crear experiencias excepcionales."
+      icons={[]}
+      images={[
+        {
+          src: '~/assets/images/camara.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/sblakepan.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/gobernacion.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/cherioth.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/basilica.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/vivemax.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/remipay.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/monarca.webp',
+          alt: 'Paypal',
+        },
+
+        {
+          src: '~/assets/images/pipeshopping.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/adriana.webp',
+          alt: 'Paypal',
+        },
+      ]}
+    />
   </div>
+<!--   <div class="relative pt-16 mx-auto max-w-7xl md:px-24 md:pt-0 2xl:pt-0 text-default">
+    <Brands
+      title="clientes"
+      subtitle="At Astrowind, we believe in the power of collaboration to drive innovation and create exceptional experiences."
+      images={[
+        {
+          src: '~/assets/images/cheriot.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/basilica.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/vivemax.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/remipay.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/monarca.webp',
+          alt: 'Paypal',
+        },
+
+        {
+          src: '~/assets/images/pipeshopping.webp',
+          alt: 'Paypal',
+        },
+        {
+          src: '~/assets/images/basilica.webp',
+          alt: 'Paypal',
+        },
+      ]}
+    />
+  </div> -->
 </Layout>

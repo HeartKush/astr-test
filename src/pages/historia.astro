@@ -1,0 +1,29 @@
+---
+import Badges from '~/components/ui/Badges.astro';
+import Card2 from '~/components/ui/Card2.astro';
+import SpaceBg from '~/components/ui/Space-bg.astro';
+import Layout from '~/layouts/PageLayout.astro';
+const metadata = {
+  title: 'SES — Historia',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <SpaceBg />
+  <div class="flex justify-center pt-32">
+    <Badges />
+  </div>
+  <div class="flex justify-center pt-20 pb-10 gap-20 flex-wrap">
+    <Card2
+      image="~/assets/images/comunicacion.webp"
+      title="Comunicación"
+      description="En el ADN de Softwow, la comunicación es el puente que conecta tus ideas con nuestro equipo. Hablamos el lenguaje digital y entendemos tus necesidades, garantizando una colaboración fluida para lograr soluciones precisas y efectivas."
+    />
+    <Card2
+      image="~/assets/images/seguimiento.webp"
+      title="Comunicación"
+      description="En el ADN de Softwow, la comunicación es el puente que conecta tus ideas con nuestro equipo. Hablamos el lenguaje digital y entendemos tus necesidades, garantizando una colaboración fluida para lograr soluciones precisas y efectivas."
+    />
+  </div>
+</Layout>

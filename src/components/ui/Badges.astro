@@ -1,0 +1,187 @@
+---
+import { trimSlash } from '~/utils/permalinks';
+// Obtén la ruta activa actual
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+---
+
+<div class="shake-vertical flex justify-center flex-wrap md:flex-nowrap md:gap-20">
+  <a href="/historia">
+    <span class=`items-center me-5 ms-5 mt-4 rounded-md w-24 mx-auto ${currentPath === '/historia' ? 'btn active-link' : 'btn'}`>2020</span>
+  </a>
+  <a href="/historia/2021">
+    <span class=`items-center me-5 ms-5 mt-4 rounded-md w-24 mx-auto ${currentPath === '/historia/2021' ? 'btn active-link' : 'btn'}`>2021</span>
+  </a>
+  <a href="/historia/2022">
+    <span class=`items-center me-5 ms-5 mt-4 rounded-md w-24 mx-auto ${currentPath === '/historia/2022' ? 'btn active-link' : 'btn'}`>2022</span>
+  </a>
+  <a href="/historia/2023">
+    <span class=`items-center me-5 ms-5 mt-4 rounded-md w-24 mx-auto ${currentPath === '/historia/2023' ? 'btn active-link' : 'btn'}`>2023</span>
+  </a>
+</div>
+
+<style>
+  .btn.active-link::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+
+  .btn {
+    --border-color: linear-gradient(-45deg, #03a9f4, #cdc0c4);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --bg: #080312;
+
+    /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+
+  .btn::after,
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .btn::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+
+    50% {
+      background-position: 70% 100%;
+    }
+
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+
+  .btn:where(:hover, :focus) {
+    color: #fff;
+  }
+  span {
+    color: #03a9f4;
+  }
+  .shake-vertical {
+    -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  }
+  @-webkit-keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+  @keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+</style>

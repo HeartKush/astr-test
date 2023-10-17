@@ -2,35 +2,120 @@
 import { Icon } from 'astro-icon/components';
 import type { Brands } from '~/types';
 import Headline from '~/components/ui/Headline.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { findImage } from '~/utils/images';
 const {
   title = '',
   subtitle = '',
   tagline = '',
   icons = [],
   images = [],
-  id,
-  isDark = false,
-  classes = {},
-  bg = await Astro.slots.render('bg'),
 } = Astro.props as Brands;
+let imagesWithLoadedData = await Promise.all(
+  images.map(async (image) => {
+    if (image.src) {
+      // Aquí utilizamos findImage de forma dinámica para cargar la imagen
+      const loadedImage = await findImage(image.src);
+      return {
+        ...image,
+        loadedImage,
+      };
+    }
+    return image;
+  })
+);
+//console.log(images)
+//console.log(imagesWithLoadedData)
+
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
-
-  <div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
-    {icons && icons.map((icon) => <Icon name={icon} class="py-3 lg:py-5 w-12 h-auto mx-auto sm:mx-0 text-gray-500" />)}
-    {
-      images &&
-        images.map(
-          (image) =>
-            image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                <img src={image.src} alt={image.alt || ''} class="max-h-12" />
-              </div>
-            )
-        )
+<div class="shake-vertical flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-4">
+  {icons && icons.map((icon) => <Icon name={icon} class="py-3 lg:py-5 w-12 h-auto mx-auto sm:mx-0 text-gray-500" />)}
+  {
+    imagesWithLoadedData &&
+    imagesWithLoadedData.map((image) => {
+      if (image['loadedImage']) {
+        return (
+          <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 max-w-240 px-3 rounded-md dark:bg-gray-200">
+            <img src={image['loadedImage']['src']} alt={image.alt || ''} class="max-h-20 md:max-h-16" />
+          </div>
+        );
+      }
+      return null;
+    })
+  }
+</div>
+<style>
+  img{
+    min-width: 210px;
+  }
+  .max-w-240{
+    max-width: 240px;
+  }
+    .shake-vertical {
+    -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  }
+  @-webkit-keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
     }
-  </div>
-</WidgetWrapper>
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+  @keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+</style>
+
+
+
+
+
+

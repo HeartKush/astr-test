@@ -5,7 +5,7 @@ interface Props {
 }
 const { href, text } = Astro.props;
 ---
-<button class="btn" type="button">
+<button class="btn md:w-22" type="button">
   <a href={href}><strong>{text}</strong></a>
   <div id="container-stars">
     <div id="stars"></div>
@@ -21,7 +21,6 @@ const { href, text } = Astro.props;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 13rem;
     overflow: hidden;
     height: 3rem;
     background-size: 300% 300%;
@@ -31,7 +30,7 @@ const { href, text } = Astro.props;
     animation: gradient_301 5s ease infinite;
     border: double 4px transparent;
     background-image: linear-gradient(#212121, #212121),
-      linear-gradient(315deg, #8803f4 10%, #03a9f4 100%, #ff0058 10%);
+      linear-gradient(315deg, #a1d9f3 10%, #03a9f4 100%, #a1d9f3 10%);
     background-origin: border-box;
     background-clip: content-box, border-box;
   }

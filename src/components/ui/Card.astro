@@ -4,14 +4,15 @@ import Image from '~/components/common/Image.astro';
 interface Props {
   image: string;
   alt: string;
+  description: string;
 }
-const { image, alt } = Astro.props;
+const { image, alt, description } = Astro.props;
 const imageFounded = await findImage(image);
 ---
 
 <div class="card ">
   <div class="card-info">
-    <!-- <p class="title">Magic Card</p> -->
+    <p class="text sm:text-lg text-white 2xl:text-sm px-6 py-10">{description}</p>
     <Image
       widths={[400, 900]}
       width={500}
@@ -29,13 +30,12 @@ const imageFounded = await findImage(image);
 
 <style lang="scss">
   .card {
-    --background: linear-gradient(315deg, #03a9f4, #ff0058);
+    --background: linear-gradient(315deg, #03a9f4, #cdc0c4);
     width: 340px;
     height: 254px;
     padding: 5px;
     border-radius: 1rem;
     overflow: visible;
-    background: #f7ba2b;
     background: var(--background);
     position: relative;
     z-index: 1;
@@ -68,11 +68,13 @@ const imageFounded = await findImage(image);
     height: 100%;
     overflow: visible;
     border-radius: 0.7rem;
+    transition: all ease 0.1s;
     .title {
-      opacity: 0;
-      transition:
-        visibility 0s,
-        opacity 0.5s linear;
+      opacity: 1;
+      transition: all ease 0.1s;
+    }
+    .text{
+      display: none;
     }
   }
 
@@ -87,14 +89,21 @@ const imageFounded = await findImage(image);
   /*Hover*/
   .card:hover::after {
     opacity: 0;
+     transition: all ease 0.1s;
   }
 
   .card:hover .card-info {
     color: #f7ba2b;
-    transition: color 1s;
+    transition: all ease 0.1s;
 
     .title {
-      opacity: 1;
+      opacity: 0;
+      display: none;
+      transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+    }
+    .text{
+      display: block;
+      transition: color 1s;
     }
   }
   .shake-vertical {

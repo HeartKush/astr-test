@@ -4,7 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Card from '~/components/ui/Card.astro';
 
 const metadata = {
-  title: 'SES — Softwow Ecommerce Services',
+  title: 'SES — ADN',
   ignoreTitleTemplate: true,
 };
 ---
@@ -14,95 +14,99 @@ const metadata = {
   <div class="shake-vertical flex flex-col md:flex-row justify-center pt-28 md:pt-28 gap-16 xl:pt-30">
     <!-- first card -->
     <div class="flex flex-col justify-center">
-      <h3 class="text-4xl md:text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Comunicación</h3>
+      <h3 class="text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Comunicación</h3>
       <picture class="flex justify-center w-full">
-        <Card alt="comunicación" image="~/assets/images/comunicacion.png" />
+        <Card
+          description="En el ADN de Softwow, la comunicación es el puente que conecta tus ideas con nuestro equipo. Hablamos el lenguaje digital y entendemos tus necesidades, garantizando una colaboración fluida para lograr soluciones precisas y efectivas."
+          alt="comunicación"
+          image="~/assets/images/comunicacion.webp"
+        />
       </picture>
     </div>
     <!-- second card -->
     <div class="flex flex-col justify-center">
-      <h3 class="text-4xl md:text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Seguimiento</h3>
+      <h3 class="text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Seguimiento</h3>
       <picture class="flex justify-center w-full">
-        <Card alt="seguimiento" image="~/assets/images/seguimiento.png" />
+        <Card description='Nuestro ADN se teje con hilos de seguimiento meticuloso. Cada acción es monitoreada, cada hito es celebrado. No perdemos detalle, asegurando que cada paso, por pequeño que sea, sea un avance palpable hacia el éxito de tu proyecto.' alt="seguimiento" image="~/assets/images/seguimiento.webp" />
       </picture>
     </div>
   </div>
   <div class="shake-vertical flex flex-col mt-16 md:mt-10 pb-16 md:flex-row justify-center gap-16 xl:pb-0">
     <!-- first card -->
     <div class="flex flex-col justify-center">
-      <h3 class="text-4xl md:text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Resultados</h3>
+      <h3 class="text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Resultados</h3>
       <picture class="flex justify-center w-full">
-        <Card alt="resultados" image="~/assets/images/resultados.png" />
+        <Card description='Desde Softwow, convertimos la visión en resultados tangibles. Nuestro ADN está impregnado de un compromiso firme con la entrega de soluciones que superen expectativas. Los resultados que logramos hablan por sí mismos, reflejando calidad y excelencia.' alt="resultados" image="~/assets/images/resultados.webp" />
       </picture>
     </div>
     <!-- second card -->
     <div class="flex flex-col justify-center">
-      <h3 class="text-4xl md:text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Desempeño</h3>
+      <h3 class="text-2xl text-center font-bold tracking-tight dark:text-white mb-5">Desempeño</h3>
       <picture class="flex justify-center w-full">
-        <Card alt="desempeño" image="~/assets/images/desempeno.png" />
+        <Card description='El desempeño excepcional es parte esencial del ADN de Softwow. Nos esforzamos por alcanzar y superar estándares en cada proyecto. La excelencia es nuestra norma, y nuestro desempeño es un reflejo de la dedicación y habilidades que aportamos a cada tarea.' alt="desempeño" image="~/assets/images/desempeno.webp" />
       </picture>
     </div>
   </div>
 </Layout>
 <style>
-        .shake-vertical {
-      -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
-      animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  .shake-vertical {
+    -webkit-animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+    animation: shake-vertical 18s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  }
+  @-webkit-keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
     }
-    @-webkit-keyframes shake-vertical {
-      0%,
-      100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-      }
-      10%,
-      30%,
-      50%,
-      70% {
-        -webkit-transform: translateY(-8px);
-        transform: translateY(-8px);
-      }
-      20%,
-      40%,
-      60% {
-        -webkit-transform: translateY(8px);
-        transform: translateY(8px);
-      }
-      80% {
-        -webkit-transform: translateY(6.4px);
-        transform: translateY(6.4px);
-      }
-      90% {
-        -webkit-transform: translateY(-6.4px);
-        transform: translateY(-6.4px);
-      }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
     }
-    @keyframes shake-vertical {
-      0%,
-      100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-      }
-      10%,
-      30%,
-      50%,
-      70% {
-        -webkit-transform: translateY(-8px);
-        transform: translateY(-8px);
-      }
-      20%,
-      40%,
-      60% {
-        -webkit-transform: translateY(8px);
-        transform: translateY(8px);
-      }
-      80% {
-        -webkit-transform: translateY(6.4px);
-        transform: translateY(6.4px);
-      }
-      90% {
-        -webkit-transform: translateY(-6.4px);
-        transform: translateY(-6.4px);
-      }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
     }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
+  @keyframes shake-vertical {
+    0%,
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+    80% {
+      -webkit-transform: translateY(6.4px);
+      transform: translateY(6.4px);
+    }
+    90% {
+      -webkit-transform: translateY(-6.4px);
+      transform: translateY(-6.4px);
+    }
+  }
 </style>

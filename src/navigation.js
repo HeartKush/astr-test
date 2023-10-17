@@ -3,8 +3,8 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Inicio',
-      href: getPermalink('/#'),
+      text: 'INICIO',
+      href: getPermalink('/'),
       /*       links: [
         {
           text: 'SaaS',
@@ -29,7 +29,7 @@ export const headerData = {
       href: getPermalink('/adn'),
     },
     {
-      text: 'Aliados',
+      text: 'ALIADOS',
       href: getPermalink('/aliados'),
     },
     /*     {
@@ -120,11 +120,16 @@ export const headerData = {
       ],
     }, */
     {
-      text: 'Home',
-      href: getPermalink('/home'),
+      text: 'HISTORIA',
+      href: getPermalink('historia'),
+            historia: [
+        {
+          text: '2020',
+          href: getPermalink('/historia/test'),
+        }
+      ],
     },
   ],
-  actions: [{ text: 'Sorteo!', variant: 'primary', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
